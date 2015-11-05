@@ -1,40 +1,27 @@
 # Angular Style Guide
 
-*Opinionated Angular style guide for teams by [@john_papa](//twitter.com/john_papa)*
 *Subiektywny poradnik stylu Angularjs dla zespołów, utworzony przez [@john_papa](//twitter.com/john_papa)*
 
-If you are looking for an opinionated style guide for syntax, conventions, and structuring Angular applications, then step right in. These styles are based on my development experience with [Angular](//angularjs.org), presentations, [Pluralsight training courses](http://pluralsight.com/training/Authors/Details/john-papa) and working in teams.
-Jeżeli poszukujesz poradnika opisującego skłądnię, konwencję oraz struktury aplikacji tworzonych w AngularJS - zapraszam. Poniższe reguły oparte są na podstawie mojego doświadczenia jako developera [Angular](//angularjs.org), prezentacji, [kursy Pluralsight](http://pluralsight.com/training/Authors/Details/john-papa)  oraz pracy w zespołach.
+Jeżeli poszukujesz poradnika opisującego składnię, konwencje oraz struktury aplikacji tworzonych w AngularJS - zapraszam. Poniższe reguły oparte są na podstawie mojego doświadczenia jako developera [Angular](//angularjs.org), prezentacji, [kursów Pluralsight](http://pluralsight.com/training/Authors/Details/john-papa)  oraz pracy w zespołach.
 
-The purpose of this style guide is to provide guidance on building Angular applications by showing the conventions I use and, more importantly, why I choose them.
 Celem tego poradnika jest zapewnienie wsparcia w budowaniu aplikacji używających AngularJS poprzez pokazanie konwencji których używam, oraz co ważniejsze - dlaczego ich używam.
 
->If you like this guide, check out my [Angular Patterns: Clean Code](http://jpapa.me/ngclean) course at Pluralsight which is a companion to this guide.
 >Jeśli podoba Ci się ten poradnik, sprawdź proszę mój kurs na Pluralsight: [Angular Patterns: Clean Code](http://jpapa.me/ngclean).
 
   [![Angular Patterns: Clean Code](https://raw.githubusercontent.com/johnpapa/angular-styleguide/master/assets/ng-clean-code-banner.png)](http://jpapa.me/ngclean)
 
-## Community Awesomeness and Credit
 ## Wspaniałość społeczności oraz wyrazy uznania.
 
-Never work in a vacuum. I find that the Angular community is an incredible group who are passionate about sharing experiences. As such, a friend and Angular expert Todd Motto and I have collaborated on many styles and conventions. We agree on most, and some we diverge. I encourage you to check out [Todd's guidelines](https://github.com/toddmotto/angularjs-styleguide) to get a sense for his approach and how it compares.
 Nigdy nie pracuj samotnie. Odkryłem, że społeczność Angulara jest wspaniałą grupą, która z radością dzieli się swoimi doświadczeniami. Z jednym z nich, moim przyjacielem i ekspertem Toddem Motto, współpracowałem nad wieloma stylami i konwencjami. W większości się zgodzaliśmy, a częściiowo nasze spojrzenie na problem były inne. Dla porównania, oraz aby poznać jego podejście do Angulara, zachęcam do zapoznania się z jego poradnikiem: [Todd's guidelines](https://github.com/toddmotto/angularjs-styleguide), 
 
-
-Many of my styles have been from the many pair programming sessions [Ward Bell](http://twitter.com/wardbell) and I have had. My friend Ward has certainly helped influence the ultimate evolution of this guide.
 Wiele z poniższych reguł powstało w trakcie współpracy z Wardem Bell'em [Ward Bell](http://twitter.com/wardbell). Sesje te zdecydowanie wpłynęły na ewolucję i ostateczny kształt tego poradnika.
 
-## See the Styles in a Sample App
 ## Obejrzyj reguły w przykładowej Aplikacji
-While this guide explains the *what*, *why* and *how*, I find it helpful to see them in practice. This guide is accompanied by a sample application that follows these styles and patterns. You can find the [sample application (named modular) here](https://github.com/johnpapa/ng-demos) in the `modular` folder. Feel free to grab it, clone it, or fork it. [Instructions on running it are in its readme](https://github.com/johnpapa/ng-demos/tree/master/modular).
 Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobaczyć te reguły w praktyce. Razem z tym poradnikiem załączam przykładową aplikację, która zbudowana jest z zachowaniem tych stylów i wzorców. [Przykładowa aplikacja - "Modular"](https://github.com/johnpapa/ng-demos) znajduje się w folderze `modular`; nie krępuj się przed użyciem jej. [Instrukcje uruchomienia znajdziesz w pliku readme](https://github.com/johnpapa/ng-demos/tree/master/modular).
 
-##Translations
-[Translations of this Angular style guide](https://github.com/johnpapa/angular-styleguide/tree/master/i18n) are maintained by the community and can be found here.
 ##Tłumaczenia
 [Tłumaczenia tego poradnika](https://github.com/johnpapa/angular-styleguide/tree/master/i18n), utrzymywane są przez społęczność i znajdują się pod podanym linkiem.
  
-## Table of Contents
 ##Spis Treści
 
   1. [Single Responsibility](#single-responsibility)
@@ -77,7 +64,6 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 
   - Definiuj 1 komponent na plik.
 
-  The following example defines the `app` module and its dependencies, defines a controller, and defines a factory all in the same file.
   Poniższy przykład przedstawia aplikację `app` - jej moduły i zależności, kontrolery i definicje fabryk, wszystko w jednym pliku.
 
   ```javascript
@@ -92,7 +78,6 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
   function someFactory() { }
   ```
 
-  The same components are now separated into their own files.
   Te same składniki, teraz zdefiniowane w osobnych plikach.
 
   ```javascript
@@ -131,13 +116,10 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Zakończenia JavaScript
 ###### [Styl [Y010](#style-y010)]
 
-  - Wrap Angular components in an Immediately Invoked Function Expression (IIFE).
   - Otaczaj komponenty Angulara przy użyciu wzorca IIFE  (Immediately Invoked Function Expression)
 
-  *Why?*: An IIFE removes variables from the global scope. This helps prevent variables and function declarations from living longer than expected in the global scope, which also helps unikaj variable collisions.
   *Dlaczego?*: Wzorzec IIFE usuwa zmienne z zakresu globalnego. Skraca on żywotność zmiennych oraz funkcji dłużej niż zamierzone w zakresie globalnym, co z kolei pomaga w unikaniu konfliktu zmiennych.
 
-  *Why?*: When your code is minified and bundled into a single file for deployment to a production server, you could have collisions of variables and many global variables. An IIFE protects you against both of these by providing variable scope for each file.
   *Dlaczego*: Gdy Twój kod zostanie zminifikowany i scalony w jeden plik podczas procesu produkcji, zmienne oraz zmienne globalne mogą kolidować ze sobą. Wzorzec IIFE chroni je poprzez dodanie zakresu dl każdego pliku.
 
   ```javascript
@@ -189,10 +171,8 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
   })();
   ```
 
-  - Note: For brevity only, the rest of the examples in this guide may omit the IIFE syntax.
   - Uwaga: Tylko i wyłącznie dla czytelności, pozostałe przykłady mogą omijać składnię IIFE.
 
-  - Note: IIFE's prevent test code from reaching private members like regular expressions or helper functions which are often good to unit test directly on their own. However you can test these through accessible members or by exposing them through their own component. For example placing helper functions, regular expressions or constants in their own factory or constant.
   - Uwaga: Wzorzec IIFE uniemożliwia testom dotarcie do składników prywatnych - wyrażeń regularnych oraz funkcji pomocniczych, które zazwyczaj dobrze testować oddzialnie. Jednakże, możliwe jest przetestowanich ich poprzez użycie 'członków prywatnych' (private members) lub udostępnianie ich własnych składników. Na przykład - umieszczenie funkcji pomocniczych lub wyrażeń regularncyh w osobnych usługach (factory) lub stałych.
 
 **[Do góry](#table-of-contents)**
@@ -202,20 +182,16 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Unikaj Kolizji w Nazwach
 ###### [Styl [Y020](#style-y020)]
 
-  - Use unique naming conventions with separators for sub-modules.
   - Używaj unikatowych nazw wraz z separatorami dla podmodułów.
 
-  *Why?*: Unique names help unikaj module name collisions. Separators help define modules and their submodule hierarchy. For example `app` may be your root module while `app.dashboard` and `app.users` may be modules that are used as dependencies of `app`.
   *Dlaczego?*: Unikatowe nazewnictwo przeciwdziała kolizji modułów. Separatory pomagają w definiowaniu hierarchii modułów. Na przykład: aplikacja `app` może być Twoim głównym modułem, podczas gdy `app.dashboard` oraz `app.users` - modułami które będą zaleźnościami aplikacji głównej.
 
 
 ### Definiowanie  (Setters)
 ###### [Styl [Y021](#style-y021)]
 
-  - Declare modules without a variable using the setter syntax.
   - Deklaruj moduły bez używania nazw zmiennych.
 
-  *Why?*: With 1 component per file, there is rarely a need to introduce a variable for the module.
   *Dlaczego?*: Z jednym składnikiem dla każdego pliku, nie ma potrzeby przypisywania modułów do zmiennych. 
 
   ```javascript
@@ -228,7 +204,6 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
   ]);
   ```
 
-  Instead use the simple setter syntax.
   Zamiast tego, używaj prostszej składni 'setter':
 
   ```javascript
@@ -245,10 +220,8 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Getters
 ###### [Style [Y022](#style-y022)]
 
-  - When using a module, unikaj using a variable and instead use chaining with the getter syntax.
-  - Gdy używasz moduł, nie używaj nazwy zmiennej, w zamian łącz komendy używająć składni 'getter'. 
+  - Gdy używasz modułu, nie używaj nazwy zmiennej, w zamian łącz komendy używająć składni 'getter'. 
 
-  *Why?*: This produces more readable code and unikajs variable collisions or leaks.
   *Dlaczego?*: Kod jest przejrzystszy, zapobiego to także kolizjom zmiennych i ich przeciekom.
 
   ```javascript
@@ -271,10 +244,8 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Setting vs Getting
 ###### [Styl [Y023](#style-y023)]
 
-  - Only set once and get for all other instances.
   - Deklaruj tylko raz, pobieraj moduł w każdej innej instancji.
 
-  *Why?*: A module should only be created once, then retrieved from that point and after.
   *Dlaczego?*: Każdy moduł powinien być deklarowany tylko raz i od tego miejsca już tylko wywyoływany.
   
 
@@ -291,10 +262,8 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Funkcje Nazwane czy Anonimowe?
 ###### [Styl [Y024](#style-y024)]
 
-  - Use named functions instead of passing an anonymous function in as a callback.
   - Używaj funkcji nazywanych zamiast wywyłować zwrotnie funkcje anonimowe.  
 
-  *Why?*: This produces more readable code, is much easier to debug, and reduces the amount of nested callback code.
   *Dlaczego?*: Kod jest czytelniejszy i dużo łatwiejszy do debuggowania, redukujesz tez ilość zagnieżdzonych wywołań zwrotnych.
 
   ```javascript
@@ -332,16 +301,12 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Składnia 'controllerAs' w Widoku
 ###### [Styl [Y030](#style-y030)]
 
-  - Use the [`controllerAs`](http://www.johnpapa.net/do-you-like-your-angular-controllers-with-or-without-sugar/) syntax over the `classic controller with $scope` syntax.
   - Używaj składni [`controllerAs`](http://www.johnpapa.net/do-you-like-your-angular-controllers-with-or-without-sugar/) zamiast 'klasycznej' z użyciem `$scope`.
 
-  *Why?*: Controllers are constructed, "newed" up, and provide a single new instance, and the `controllerAs` syntax is closer to that of a JavaScript constructor than the `classic $scope syntax`.
   *Dlaczego?*: Kontrolery są tworzone, "odświeżane"  i zapewniają nowe instancje; składnia `controlerAs` jest bliższa konstruktorowi JavaScript niż `klasyczna składnia używająca $scope`.
 
-  *Why?*: It promotes the use of binding to a "dotted" object in the View (e.g. `customer.name` instead of `name`), which is more contextual, easier to read, and unikajs any reference issues that may occur without "dotting".
   *Dlaczego?*: Zachęca do korzystania z wiązania przy użyciu składni "dotted" w Widoku (np. `customer.name` zamiast `name`). Składnia ta jest przejrzystsza, łatwiejsza w interpretacji a także pozwala uniknąć problemów z referencją które mogą pojawić się gdy nie używasz składni "dotted".
 
-  *Why?*: Helps unikaj using `$parent` calls in Views with nested controllers.
   *Dlaczego?*: Pomaga w unikaniu wywołań `$parent` w Widoku w zagnieżdzonych kontrolerach.
 
   ```html
@@ -361,13 +326,10 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Składnia 'controllerAs' w Kontrolerze
 ###### [Styl [Y031](#style-y031)]
 
-  - Use the `controllerAs` syntax over the `classic controller with $scope` syntax.
   - Używaj składni `controllerAs` zamiast 'klasycznej' z użyciem `$scope`.
 
-  - The `controllerAs` syntax uses `this` inside controllers which gets bound to `$scope`
   - Składnia `controllerAs` wykorzystuje wewnątrz kontrolerów `this` powiązane do `$scope`.  
 
-  *Why?*: `controllerAs` is syntactic sugar over `$scope`. You can still bind to the View and still access `$scope` methods.
   *Dlaczego?*: `controllerAs` jest słodkim dodatkiem dla `$scope', którgo wciąż możesz przecież używać w Widoku oraz Kontrolerach.
 
   *Why?*: Helps unikaj the temptation of using `$scope` methods inside a controller when it may otherwise be better to unikaj them or move the method to a factory, and reference them from the controller. Consider using `$scope` in a controller only when needed. For example when publishing and subscribing events using [`$emit`](https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$emit), [`$broadcast`](https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast), or [`$on`](https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$on).
