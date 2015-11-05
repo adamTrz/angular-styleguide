@@ -12,7 +12,7 @@ Celem tego poradnika jest zapewnienie wsparcia w budowaniu aplikacji używający
 
 ## Wspaniałość społeczności oraz wyrazy uznania.
 
-Nigdy nie pracuj samotnie. Odkryłem, że społeczność Angulara jest wspaniałą grupą, która z radością dzieli się swoimi doświadczeniami. Z jednym z nich, moim przyjacielem i ekspertem Toddem Motto, współpracowałem nad wieloma stylami i konwencjami. W większości się zgodzaliśmy, a częściiowo nasze spojrzenie na problem były inne. Dla porównania, oraz aby poznać jego podejście do Angulara, zachęcam do zapoznania się z jego poradnikiem: [Todd's guidelines](https://github.com/toddmotto/angularjs-styleguide), 
+Nigdy nie pracuj samotnie. Odkryłem, że społeczność Angulara jest wspaniałą grupą, która z radością dzieli się swoimi doświadczeniami. Z jednym z jej członków, moim przyjacielem i ekspertem Toddem Motto, współpracowałem nad wieloma stylami i konwencjami. W większości kwestii się zgodzamy, częsem nasze spojrzenia na problem były inne. Dla porównania, oraz aby poznać jego podejście do Angulara, zachęcam do zapoznania się z jego poradnikiem: [Todd's guidelines](https://github.com/toddmotto/angularjs-styleguide), 
 
 Wiele z poniższych reguł powstało w trakcie współpracy z Wardem Bell'em [Ward Bell](http://twitter.com/wardbell). Sesje te zdecydowanie wpłynęły na ewolucję i ostateczny kształt tego poradnika.
 
@@ -20,11 +20,11 @@ Wiele z poniższych reguł powstało w trakcie współpracy z Wardem Bell'em [Wa
 Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobaczyć te reguły w praktyce. Razem z tym poradnikiem załączam przykładową aplikację, która zbudowana jest z zachowaniem tych stylów i wzorców. [Przykładowa aplikacja - "Modular"](https://github.com/johnpapa/ng-demos) znajduje się w folderze `modular`; nie krępuj się przed użyciem jej. [Instrukcje uruchomienia znajdziesz w pliku readme](https://github.com/johnpapa/ng-demos/tree/master/modular).
 
 ##Tłumaczenia
-[Tłumaczenia tego poradnika](https://github.com/johnpapa/angular-styleguide/tree/master/i18n), utrzymywane są przez społęczność i znajdują się pod podanym linkiem.
+[Tłumaczenia tego poradnika](https://github.com/johnpapa/angular-styleguide/tree/master/i18n), utrzymywane są przez społeczność i znajdują się pod podanym linkiem.
  
 ##Spis Treści
 
-  1. [Single Responsibility](#single-responsibility)
+  1. [Odpowiedzialność Jednostkowa](#single-responsibility)
   1. [IIFE](#iife)
   1. [Moduły (Modules)](#modules)
   1. [Kontrolery (Controllers)](#controllers)
@@ -33,7 +33,7 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
   1. [Data Services](#data-services)
   1. [Dyrektywy (Directives)](#directives)
   1. [Rozwiązywanie Obietnic w Kontrolerach](#resolving-promises-for-a-controller)
-  1. [Adnotacje dla Wstrzykiwania Zależności *(Dependency Injection)](#manual-annotating-for-dependency-injection)
+  1. [Adnotacje dla Wstrzykiwania Zależności (Dependency Injection)](#manual-annotating-for-dependency-injection)
   1. [Minifikacja i Komentarze](#minification-and-annotation)
   1. [Obsługa Wyjątków](#exception-handling)
   1. [Nazewnictwo](#naming)
@@ -78,7 +78,7 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
   function someFactory() { }
   ```
 
-  Te same składniki, teraz zdefiniowane w osobnych plikach.
+  Te same składniki, teraz zdefiniowane w osobnych plikach:
 
   ```javascript
   /* zalecane */
@@ -116,11 +116,11 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Zakończenia JavaScript
 ###### [Styl [Y010](#style-y010)]
 
-  - Otaczaj komponenty Angulara przy użyciu wzorca IIFE  (Immediately Invoked Function Expression)
+  - Otaczaj komponenty Angulara przy użyciu wzorca IIFE  (Immediately Invoked Function Expression).
 
   *Dlaczego?*: Wzorzec IIFE usuwa zmienne z zakresu globalnego. Skraca on żywotność zmiennych oraz funkcji dłużej niż zamierzone w zakresie globalnym, co z kolei pomaga w unikaniu konfliktu zmiennych.
 
-  *Dlaczego*: Gdy Twój kod zostanie zminifikowany i scalony w jeden plik podczas procesu produkcji, zmienne oraz zmienne globalne mogą kolidować ze sobą. Wzorzec IIFE chroni je poprzez dodanie zakresu dl każdego pliku.
+  *Dlaczego?*: Gdy Twój kod zostanie zminifikowany i scalony w jeden plik podczas procesu produkcji, zmienne oraz zmienne globalne mogą kolidować ze sobą. Wzorzec IIFE chroni je poprzez dodanie zakresu dla każdego pliku.
 
   ```javascript
   /* unikaj */
@@ -262,7 +262,7 @@ Podczas gdy poradnik ten wyjaśnia *co*, *dlaczego* i *jak*, zawsze warto zobacz
 ### Funkcje Nazwane czy Anonimowe?
 ###### [Styl [Y024](#style-y024)]
 
-  - Używaj funkcji nazywanych zamiast wywyłować zwrotnie funkcje anonimowe.  
+  - Używaj funkcji nazwanych zamiast wywyłować zwrotnie funkcje anonimowe.  
 
   *Dlaczego?*: Kod jest czytelniejszy i dużo łatwiejszy do debuggowania, redukujesz tez ilość zagnieżdzonych wywołań zwrotnych.
 
